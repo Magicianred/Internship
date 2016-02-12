@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "aka_id,aka_ad,aka_soyad,aka_tc,aka_sorumlumu,bol_kod,aka_parola")] Akademisyen akademisyen)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 db.Akademisyen.Add(akademisyen);
                 db.SaveChanges();
