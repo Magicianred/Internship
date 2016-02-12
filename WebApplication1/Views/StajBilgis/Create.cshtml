@@ -1,0 +1,152 @@
+﻿@model WebApplication1.veritabani.StajBilgi
+
+@{
+    ViewBag.Title = "Create";
+}
+<head>
+    <style>
+        h5{
+                font-weight: bold;
+
+
+        }
+    </style>
+</head>
+ <body style="background-color:#fe2929">
+    @using (Html.BeginForm("Create","StajBilgis",FormMethod.Post, new { enctype="multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h2>Staj Girin <br /></h2>
+            <h5 style="float:right"> * Stajlar yetkili akademisyenler tarafından onaylandıktan sonra anasayfaya düşecektir *  </h5>
+            <br /><hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <h5 class="control-label col-md-2" >Staj Başlama Tarihi : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.staj_bas, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.staj_bas, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Staj Bitirme Tarihi : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.staj_bit, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.staj_bit, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Çalışma Alanı : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.calisma_alani, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.calisma_alani, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Kullanılan Teknolojiler : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.kullanilan_teknolojiler, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.kullanilan_teknolojiler, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.yetkili_yorumu, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.yetkili_yorumu, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.yetkili_yorumu, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.staj_onaylandimi, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.staj_onaylandimi)
+                            @Html.ValidationMessageFor(model => model.staj_onaylandimi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.ogrenci_tc, "ogrenci_tc", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ogrenci_tc", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ogrenci_tc, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Staj Defteri : </h5>
+                <div class="col-md-10">
+                    <input type="file" id="yuklenecekdosya" name="yuklenecekdosya" />
+                    @*@Html.EditorFor(model => model.staj_defteri, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.staj_defteri, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Firma Adı : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firma_adi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firma_adi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Firma Telefonu : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firma_tel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firma_tel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Firma Adresi : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firma_adres, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firma_adres, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Firma Fax : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firma_fax, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firma_fax, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Firma Maili : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.firma_mail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firma_mail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Çalışılan Departman : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.departman, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.departman, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>

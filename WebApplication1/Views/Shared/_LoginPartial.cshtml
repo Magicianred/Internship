@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNet.Identity
+ 
+@if (Session["LogedUserID"] != null)
+{
+    
+
+    @*<ul style = "color:deeppink" class="nav navbar-nav navbar-text ">
+
+        @Html.Raw("Hoşgeldin " + @Session["LogedUserName"].ToString())
+
+
+    </ul>*@
+    <ul class="nav navbar-nav navbar-right">
+         
+        <li>
+            @Html.ActionLink("Stajlara Göz At ", "Index", "StajBilgis", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+      
+            <li>
+                @Html.ActionLink("Staj Onayla ", "OnayVeYorum", "AkademisyenIslem", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+      
+       
+            <li>
+                @Html.ActionLink("Staj Gir ", "Create", "StajBilgis", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+         
+        
+        <li>
+            @Html.ActionLink("Çıkış Yap ", "../Home/Cikis")
+        </li>
+    </ul>
+  }
+
+else{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Öğrenci <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li> <span class="glyphicon glyphicon-user"> @Html.ActionLink("Kaydol", "Create", "Ogrencis", routeValues: null, htmlAttributes: new { id = "loginLink" })</span></li>
+                <li> <span class="glyphicon glyphicon-log-in"> @Html.ActionLink("Giriş Yap", "OGiris", "OgrenciIslem", routeValues: null, htmlAttributes: new { id = "loginLink" })</span></li>
+                
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Akademisyen<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li> <span class="glyphicon glyphicon-user"> @Html.ActionLink("Kaydol", "Create", "Akademisyens", routeValues: null, htmlAttributes: new { id = "loginLink" })</span></li>
+                <li> <span class="glyphicon glyphicon-log-in"> @Html.ActionLink("Giriş Yap", "AGiris", "AkademisyenIslem", routeValues: null, htmlAttributes: new { id = "loginLink" })</span></li>
+
+            </ul>
+        </li>
+      </ul>
+}

@@ -1,0 +1,136 @@
+﻿@model WebApplication1.veritabani.StajBilgi
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style>
+        #kutu {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: whitesmoke;
+            border-bottom: 5px solid #ff006e;
+            border-radius: 10px 10px;
+            padding: 10px;
+        }
+
+        #kutuic {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: #ff006e;
+            padding: 10px;
+        }
+
+        input[type=text] {
+            width: 65%;
+            padding: 8px 8px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-position-x: right;
+        }
+
+        #secenek {
+            background-color: #150a02;
+            padding: 10px;
+        }
+
+        #menu2 {
+            list-style-type: none;
+            padding: 30px;
+            position: center;
+            margin: 0;
+        }
+        dt{
+            color:white;
+        }
+    </style>
+</head>
+<body style="background-color:#150a02">
+
+    <h2  style="color:white">Staj Hakkında Tüm Bilgiler <button type="button" class="btn btn-default" style="background-color:white;float:right">@Html.ActionLink("Onayla veya Yorum Gir", "Edit", new { id = Model.staj_id }) </button>
+</h2>                             
+
+        <div id="menu2">
+            <center> <h3 style="color:#d13b3b">@Html.DisplayFor(model => model.Ogrenci.ogr_ad) @Html.DisplayFor(model => model.Ogrenci.ogr_soyad)</h3> </center><hr />
+            <p>
+                <h5 style="color:white">
+                    Firma Adi : @Html.DisplayFor(model => model.firma_adi)
+
+                </h5>
+                <hr />
+                <br />
+                <h5 style="color:white">
+                    Çalışma Alanı : @Html.DisplayFor(model => model.calisma_alani)
+
+                </h5>
+                <hr />
+                <br />
+                <h5 style="color:white">
+                    Kullanılan Teknolojiler : @Html.DisplayFor(model => model.kullanilan_teknolojiler) 
+                </h5>
+                <hr />
+                <br />
+                <h5 style="color:white">
+                    Staj Başlangıç Tarihi : @Html.DisplayFor(model => model.staj_bas)
+                 </h5><hr />
+                <br />
+                <h5 style="color:white">
+                    Staj Bitiş Tarihi : @Html.DisplayFor(model => model.staj_bit)
+
+                </h5><hr />
+                <br />
+
+                <h5 style="color:white">
+                    Firma Telefonu :@Html.DisplayFor(model => model.firma_tel)
+                </h5><hr />
+                <br />
+                <h5 style="color:white">
+                    Firma Adres : @Html.DisplayFor(model => model.firma_adres)
+                </h5><hr />
+                <br />
+                <h5 style="color:white">
+                    Firma Fax : @Html.DisplayFor(model => model.firma_fax)
+                </h5><hr />
+                <br />
+                <h5 style="color:white">
+                   Firma Maili : @Html.DisplayFor(model => model.firma_mail)
+                </h5><hr />
+                <br />
+                <h5 style="color:white">
+                    Departman : @Html.DisplayFor(model => model.departman)
+                </h5><hr />
+                <br />
+                <h5 style="color:white">
+                    Yetkili Yorumu : @Html.DisplayFor(model => model.yetkili_yorumu)
+                </h5>
+                @*<hr />
+                <br />
+                <h5 style="color:white">
+                    Staj Onayı : @Html.DisplayFor(model => model.staj_onaylandimi)
+                </h5>*@
+            </p>
+       
+
+              
+                   
+             
+                                @*
+
+            @Html.DisplayFor(model => model.staj_defteri)*@
+                
+                
+                
+                    
+                
+               
+        </div>
+</body>
+

@@ -1,0 +1,131 @@
+﻿@using WebApplication1.veritabani;
+
+@{
+    ViewBag.Title = "OnayVeYorum";
+}
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        #kutu {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: whitesmoke;
+            border-bottom: 5px solid #ff006e;
+            border-radius: 10px 10px;
+            padding: 10px;
+        }
+
+        #kutuic {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: #ff006e;
+            padding: 10px;
+        }
+
+        input[type=text] {
+            width: 65%;
+            padding: 8px 8px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-position-x: right;
+        }
+
+        #secenek {
+            background-color: #150a02;
+            padding: 10px;
+        }
+
+        #menu2 {
+            list-style-type: none;
+            padding: 30px;
+            position: center;
+            margin: 0;
+        }
+    </style>
+    
+</head>
+<body style="background-color:#150a02">
+
+
+    <h1 style="color:white">Onaylamadığınız Stajlar</h1>
+    @{String bolumkod = null;}
+    <div class="container-fluid">
+
+        @foreach (Akademisyen a in ViewBag.akaliste)
+        {
+            if (@Session["LogedUserID"].Equals(a.aka_tc))
+            {
+                bolumkod = a.bol_kod.ToString();
+                break;
+            }
+        }
+
+        @foreach (StajBilgi staj in ViewBag.stajlar)
+        {
+        if (!(@staj.staj_onaylandimi) && @staj.Ogrenci.ogr_bolumkod.Equals(bolumkod))
+        {
+        <div class="col-md-6" id="menu2">
+            <div id="secenek">
+                <center> <h3 style="color:#d13b3b">@staj.Ogrenci.ogr_ad @staj.Ogrenci.ogr_soyad</h3> </center><hr />
+                <p>
+                    <h5 style="color:white">
+                        Firma Adi : @staj.firma_adi
+                    </h5>
+                    <hr />
+                    <br />
+                    <h5 style="color:white">
+                        Çalışma Alanı : @staj.calisma_alani
+                    </h5>
+                    <hr />
+                    <br />
+                    <h5 style="color:white">
+                        Kullanılan Teknolojiler : @staj.kullanilan_teknolojiler
+                    </h5>
+
+                    @*@using (Html.BeginForm("OnayVeYorum", "AkademisyenIslem", FormMethod.Get))
+                    {
+
+
+                        <textarea rows="4" cols="500" name="@staj.staj_id" id="@staj.staj_id" style="color:red" placeholder="yorum.."></textarea><br /><br />
+                        <button type="button" class="btn btn-danger">Yorumu Gönder</button>
+
+
+
+
+
+                    }*@
+
+
+
+                </p>
+                <center><button type="button" class="btn btn-default" style="background-color:white">@Html.ActionLink("Details", "Details", new { id = staj.staj_id }) </button></center>
+            </div>
+        </div>
+
+        }
+        }
+
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+

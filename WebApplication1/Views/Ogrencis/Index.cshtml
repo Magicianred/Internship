@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WebApplication1.veritabani.Ogrenci>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_sigorta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_dogum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ogr_parola)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolum.bol_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_sigorta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_dogum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ogr_parola)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolum.bol_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ogr_tc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ogr_tc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ogr_tc })
+        </td>
+    </tr>
+}
+
+</table>

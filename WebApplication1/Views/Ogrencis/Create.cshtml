@@ -1,0 +1,121 @@
+﻿@model WebApplication1.veritabani.Ogrenci
+
+@{
+    ViewBag.Title = "Create";
+}
+<div style="background-image:url(../../Content/login-bg.png);background-repeat:no-repeat;background-position-x:right">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+            <h2>Ögrenci Kaydı </h2>
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Tc Kimlik Numaranız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_tc, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_tc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Adınız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_ad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_ad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Soyadınız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_soyad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_soyad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Öğrenci Numaranız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_no, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_no, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Sosyal Sigortanız Var mı : </h5>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ogr_sigorta)
+                        @Html.ValidationMessageFor(model => model.ogr_sigorta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Adresiniz : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_adres, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_adres, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Telefon Numaranız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_tel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_tel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+             
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Doğum Tarihiniz : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_dogum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_dogum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Okuduğunuz Bölüm : </h5>
+                <div class="col-md-10">
+                    @Html.DropDownList("ogr_bolumkod", null, htmlAttributes: new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.ogr_bolumkod, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Mailiniz : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_mail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_mail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h5 class="control-label col-md-2">Parolanız : </h5>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ogr_parola, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ogr_parola, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydol" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

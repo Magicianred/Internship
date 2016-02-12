@@ -1,0 +1,54 @@
+﻿@model WebApplication1.veritabani.StajBilgi
+<body style="background-color:#150a02">
+
+    <h2 style="color:white">Stajı Onayla Veya Yorumla</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.staj_id)
+            @Html.HiddenFor(model => model.staj_bas)
+            @Html.HiddenFor(model => model.staj_bit)
+            @Html.HiddenFor(model => model.calisma_alani)
+            @Html.HiddenFor(model => model.kullanilan_teknolojiler)
+            @Html.HiddenFor(model => model.ogrenci_tc)
+            @Html.HiddenFor(model => model.staj_defteri)
+            @Html.HiddenFor(model => model.firma_adi)
+            @Html.HiddenFor(model => model.firma_tel)
+            @Html.HiddenFor(model => model.firma_adres)
+            @Html.HiddenFor(model => model.firma_fax)
+            @Html.HiddenFor(model => model.firma_mail)
+            @Html.HiddenFor(model => model.departman)
+            <div class="form-group">
+
+                <div class="col-md-10">
+                    <h4 style="color:white">Staj Onaylansın mı</h4>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.staj_onaylandimi)
+                        @Html.ValidationMessageFor(model => model.staj_onaylandimi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-10">
+                    <h4 style="color:white">Yetkili Yorumu</h4>
+                    @Html.EditorFor(model => model.yetkili_yorumu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.yetkili_yorumu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>

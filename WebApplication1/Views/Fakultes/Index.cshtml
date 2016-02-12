@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication1.veritabani.Fakulte>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fak_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fak_adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fak_tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fak_fax)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fak_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fak_adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fak_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fak_fax)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fak_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fak_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fak_id })
+        </td>
+    </tr>
+}
+
+</table>

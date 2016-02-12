@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InternshipModelStoreContainer" CdmEntityContainer="InternshipEntities">
+    <EntitySetMapping Name="Akademisyen">
+      <EntityTypeMapping TypeName="InternshipModel.Akademisyen">
+        <MappingFragment StoreEntitySet="Akademisyen">
+          <ScalarProperty Name="aka_mail" ColumnName="aka_mail" />
+          <ScalarProperty Name="aka_id" ColumnName="aka_id" />
+          <ScalarProperty Name="aka_ad" ColumnName="aka_ad" />
+          <ScalarProperty Name="aka_soyad" ColumnName="aka_soyad" />
+          <ScalarProperty Name="aka_tc" ColumnName="aka_tc" />
+          <ScalarProperty Name="aka_sorumlumu" ColumnName="aka_sorumlumu" />
+          <ScalarProperty Name="bol_kod" ColumnName="bol_kod" />
+          <ScalarProperty Name="aka_parola" ColumnName="aka_parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bolum">
+      <EntityTypeMapping TypeName="InternshipModel.Bolum">
+        <MappingFragment StoreEntitySet="Bolum">
+          <ScalarProperty Name="bol_id" ColumnName="bol_id" />
+          <ScalarProperty Name="bol_name" ColumnName="bol_name" />
+          <ScalarProperty Name="bol_adres" ColumnName="bol_adres" />
+          <ScalarProperty Name="bol_tel" ColumnName="bol_tel" />
+          <ScalarProperty Name="bol_fax" ColumnName="bol_fax" />
+          <ScalarProperty Name="bol_kod" ColumnName="bol_kod" />
+          <ScalarProperty Name="bol_url" ColumnName="bol_url" />
+          <ScalarProperty Name="fak_id" ColumnName="fak_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fakulte">
+      <EntityTypeMapping TypeName="InternshipModel.Fakulte">
+        <MappingFragment StoreEntitySet="Fakulte">
+          <ScalarProperty Name="fak_id" ColumnName="fak_id" />
+          <ScalarProperty Name="fak_name" ColumnName="fak_name" />
+          <ScalarProperty Name="fak_adres" ColumnName="fak_adres" />
+          <ScalarProperty Name="fak_tel" ColumnName="fak_tel" />
+          <ScalarProperty Name="fak_fax" ColumnName="fak_fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ogrenci">
+      <EntityTypeMapping TypeName="InternshipModel.Ogrenci">
+        <MappingFragment StoreEntitySet="Ogrenci">
+          <ScalarProperty Name="ogr_id" ColumnName="ogr_id" />
+          <ScalarProperty Name="ogr_tc" ColumnName="ogr_tc" />
+          <ScalarProperty Name="ogr_ad" ColumnName="ogr_ad" />
+          <ScalarProperty Name="ogr_soyad" ColumnName="ogr_soyad" />
+          <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
+          <ScalarProperty Name="ogr_sigorta" ColumnName="ogr_sigorta" />
+          <ScalarProperty Name="ogr_adres" ColumnName="ogr_adres" />
+          <ScalarProperty Name="ogr_tel" ColumnName="ogr_tel" />
+          <ScalarProperty Name="ogr_mail" ColumnName="ogr_mail" />
+          <ScalarProperty Name="ogr_dogum" ColumnName="ogr_dogum" />
+          <ScalarProperty Name="ogr_bolumkod" ColumnName="ogr_bolumkod" />
+          <ScalarProperty Name="ogr_parola" ColumnName="ogr_parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StajBilgi">
+      <EntityTypeMapping TypeName="InternshipModel.StajBilgi">
+        <MappingFragment StoreEntitySet="StajBilgi">
+          <ScalarProperty Name="staj_id" ColumnName="staj_id" />
+          <ScalarProperty Name="staj_bas" ColumnName="staj_bas" />
+          <ScalarProperty Name="staj_bit" ColumnName="staj_bit" />
+          <ScalarProperty Name="calisma_alani" ColumnName="calisma_alani" />
+          <ScalarProperty Name="kullanilan_teknolojiler" ColumnName="kullanilan_teknolojiler" />
+          <ScalarProperty Name="yetkili_yorumu" ColumnName="yetkili_yorumu" />
+          <ScalarProperty Name="staj_onaylandimi" ColumnName="staj_onaylandimi" />
+          <ScalarProperty Name="ogrenci_tc" ColumnName="ogrenci_tc" />
+          <ScalarProperty Name="staj_defteri" ColumnName="staj_defteri" />
+          <ScalarProperty Name="firma_adi" ColumnName="firma_adi" />
+          <ScalarProperty Name="firma_tel" ColumnName="firma_tel" />
+          <ScalarProperty Name="firma_adres" ColumnName="firma_adres" />
+          <ScalarProperty Name="firma_fax" ColumnName="firma_fax" />
+          <ScalarProperty Name="firma_mail" ColumnName="firma_mail" />
+          <ScalarProperty Name="departman" ColumnName="departman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="InternshipModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

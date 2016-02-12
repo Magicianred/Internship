@@ -1,0 +1,106 @@
+﻿@model WebApplication1.veritabani.Ogrenci
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ogrenci</h4>
+    <hr />
+    <dl class="dl-horizontal"  style="background-color:#e56c6c">
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_sigorta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_sigorta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_dogum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_dogum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ogr_parola)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ogr_parola)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolum.bol_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolum.bol_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ogr_tc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

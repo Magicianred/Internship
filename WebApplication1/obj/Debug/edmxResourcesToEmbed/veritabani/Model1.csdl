@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InternshipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Akademisyen">
+    <Key>
+      <PropertyRef Name="aka_tc" />
+    </Key>
+    <Property Name="aka_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aka_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aka_soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aka_tc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="aka_sorumlumu" Type="Boolean" Nullable="false" />
+    <Property Name="bol_kod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aka_parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Akademisyen_Bolum" FromRole="Akademisyen" ToRole="Bolum" />
+    <Property Name="aka_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="bol_kod" />
+    </Key>
+    <Property Name="bol_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bol_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bol_adres" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="bol_tel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="bol_fax" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="bol_kod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bol_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fak_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Akademisyen" Relationship="Self.FK_Akademisyen_Bolum" FromRole="Bolum" ToRole="Akademisyen" />
+    <NavigationProperty Name="Fakulte" Relationship="Self.FK_Bolum_Fakulte" FromRole="Bolum" ToRole="Fakulte" />
+    <NavigationProperty Name="Ogrenci" Relationship="Self.FK_Ogrenci_Bolum" FromRole="Bolum" ToRole="Ogrenci" />
+  </EntityType>
+  <EntityType Name="Fakulte">
+    <Key>
+      <PropertyRef Name="fak_id" />
+    </Key>
+    <Property Name="fak_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fak_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fak_adres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fak_tel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="fak_fax" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Bolum_Fakulte" FromRole="Fakulte" ToRole="Bolum" />
+  </EntityType>
+  <EntityType Name="Ogrenci">
+    <Key>
+      <PropertyRef Name="ogr_tc" />
+    </Key>
+    <Property Name="ogr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr_tc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ogr_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ogr_soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ogr_no" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ogr_sigorta" Type="Boolean" Nullable="false" />
+    <Property Name="ogr_adres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ogr_tel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ogr_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ogr_dogum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ogr_bolumkod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ogr_parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bolum" Relationship="Self.FK_Ogrenci_Bolum" FromRole="Ogrenci" ToRole="Bolum" />
+    <NavigationProperty Name="StajBilgi" Relationship="Self.FK_StajBilgi_Ogrenci" FromRole="Ogrenci" ToRole="StajBilgi" />
+  </EntityType>
+  <EntityType Name="StajBilgi">
+    <Key>
+      <PropertyRef Name="staj_id" />
+    </Key>
+    <Property Name="staj_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="staj_bas" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="staj_bit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="calisma_alani" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kullanilan_teknolojiler" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="yetkili_yorumu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="staj_onaylandimi" Type="Boolean" Nullable="false" />
+    <Property Name="ogrenci_tc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="staj_defteri" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firma_adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firma_tel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="firma_adres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firma_fax" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="firma_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="departman" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ogrenci" Relationship="Self.FK_StajBilgi_Ogrenci" FromRole="StajBilgi" ToRole="Ogrenci" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Akademisyen_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="1" />
+    <End Role="Akademisyen" Type="Self.Akademisyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bol_kod" />
+      </Principal>
+      <Dependent Role="Akademisyen">
+        <PropertyRef Name="bol_kod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bolum_Fakulte">
+    <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="fak_id" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="fak_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ogrenci_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bol_kod" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="ogr_bolumkod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StajBilgi_Ogrenci">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="1" />
+    <End Role="StajBilgi" Type="Self.StajBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="ogr_tc" />
+      </Principal>
+      <Dependent Role="StajBilgi">
+        <PropertyRef Name="ogrenci_tc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InternshipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Akademisyen" EntityType="Self.Akademisyen" />
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" />
+    <EntitySet Name="Fakulte" EntityType="Self.Fakulte" />
+    <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" />
+    <EntitySet Name="StajBilgi" EntityType="Self.StajBilgi" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Akademisyen_Bolum" Association="Self.FK_Akademisyen_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Akademisyen" EntitySet="Akademisyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bolum_Fakulte" Association="Self.FK_Bolum_Fakulte">
+      <End Role="Fakulte" EntitySet="Fakulte" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ogrenci_Bolum" Association="Self.FK_Ogrenci_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StajBilgi_Ogrenci" Association="Self.FK_StajBilgi_Ogrenci">
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+      <End Role="StajBilgi" EntitySet="StajBilgi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

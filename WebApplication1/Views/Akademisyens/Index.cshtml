@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.veritabani.Akademisyen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.aka_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aka_ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aka_soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aka_sorumlumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aka_parola)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolum.bol_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.aka_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aka_ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aka_soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aka_sorumlumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aka_parola)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolum.bol_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.aka_tc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.aka_tc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.aka_tc })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model WebApplication1.veritabani.Fakulte
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fakulte</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fak_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fak_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fak_adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fak_adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fak_tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fak_tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fak_fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fak_fax)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fak_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

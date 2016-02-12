@@ -1,0 +1,183 @@
+﻿@model WebApplication1.veritabani.StajBilgi
+
+@{
+    ViewBag.Title = "Details";
+}
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style>
+        #kutu {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: whitesmoke;
+            border-bottom: 5px solid #ff006e;
+            border-radius: 10px 10px;
+            padding: 10px;
+        }
+
+        #kutuic {
+            width: auto;
+            height: auto;
+            float: left;
+            padding-bottom: 3em;
+            background-color: #ff006e;
+            padding: 10px;
+        }
+
+        input[type=text] {
+            width: 65%;
+            padding: 8px 8px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-position-x: right;
+        }
+
+        #secenek {
+            background-color: #150a02;
+            padding: 10px;
+        }
+
+        #menu2 {
+            list-style-type: none;
+            padding: 30px;
+            position: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body style="background-color:#150a02">
+
+    <h2>Staj Hakkında Tüm Bilgiler</h2>
+    
+    <div>
+        <div id="secenek">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.staj_bas)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.staj_bas)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.staj_bit)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.staj_bit)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.calisma_alani)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.calisma_alani)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.kullanilan_teknolojiler)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.kullanilan_teknolojiler)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.yetkili_yorumu)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.yetkili_yorumu)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.staj_onaylandimi)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.staj_onaylandimi)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.staj_defteri)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.staj_defteri)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.firma_adi)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.firma_adi)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.firma_tel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.firma_tel)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.firma_adres)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.firma_adres)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.firma_fax)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.firma_fax)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.firma_mail)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.firma_mail)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.departman)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.departman)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ogrenci.ogr_ad)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Ogrenci.ogr_ad)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ogrenci.ogr_soyad)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Ogrenci.ogr_soyad)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+</body>
+

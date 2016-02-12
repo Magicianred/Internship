@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication1.veritabani.Bolum>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bol_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fakulte.fak_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bol_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fakulte.fak_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.bol_kod }) |
+            @Html.ActionLink("Details", "Details", new { id=item.bol_kod }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.bol_kod })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model WebApplication1.veritabani.Bolum
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bolum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bol_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bol_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fakulte.fak_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fakulte.fak_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bol_kod }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

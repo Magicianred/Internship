@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InternshipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Akademisyen">
+    <Key>
+      <PropertyRef Name="aka_tc" />
+    </Key>
+    <Property Name="aka_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aka_ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="aka_soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="aka_tc" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="aka_sorumlumu" Type="bit" Nullable="false" />
+    <Property Name="bol_kod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="aka_parola" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="aka_mail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="bol_kod" />
+    </Key>
+    <Property Name="bol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bol_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="bol_adres" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="bol_tel" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="bol_fax" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="bol_kod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="bol_url" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="fak_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fakulte">
+    <Key>
+      <PropertyRef Name="fak_id" />
+    </Key>
+    <Property Name="fak_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fak_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="fak_adres" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="fak_tel" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="fak_fax" Type="char" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ogrenci">
+    <Key>
+      <PropertyRef Name="ogr_tc" />
+    </Key>
+    <Property Name="ogr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr_tc" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="ogr_ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ogr_soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ogr_no" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="ogr_sigorta" Type="bit" Nullable="false" />
+    <Property Name="ogr_adres" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ogr_tel" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="ogr_mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ogr_dogum" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ogr_bolumkod" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ogr_parola" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StajBilgi">
+    <Key>
+      <PropertyRef Name="staj_id" />
+    </Key>
+    <Property Name="staj_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="staj_bas" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="staj_bit" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="calisma_alani" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="kullanilan_teknolojiler" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="yetkili_yorumu" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="staj_onaylandimi" Type="bit" Nullable="false" />
+    <Property Name="ogrenci_tc" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="staj_defteri" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="firma_adi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="firma_tel" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="firma_adres" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="firma_fax" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="firma_mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="departman" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Bolum_Fakulte">
+    <End Role="Fakulte" Type="Self.Fakulte" Multiplicity="1" />
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="fak_id" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="fak_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ogrenci_Bolum1">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="1" />
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bol_kod" />
+      </Principal>
+      <Dependent Role="Ogrenci">
+        <PropertyRef Name="ogr_bolumkod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StajBilgi_Ogrenci">
+    <End Role="Ogrenci" Type="Self.Ogrenci" Multiplicity="1" />
+    <End Role="StajBilgi" Type="Self.StajBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenci">
+        <PropertyRef Name="ogr_tc" />
+      </Principal>
+      <Dependent Role="StajBilgi">
+        <PropertyRef Name="ogrenci_tc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InternshipModelStoreContainer">
+    <EntitySet Name="Akademisyen" EntityType="Self.Akademisyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fakulte" EntityType="Self.Fakulte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StajBilgi" EntityType="Self.StajBilgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bolum_Fakulte" Association="Self.FK_Bolum_Fakulte">
+      <End Role="Fakulte" EntitySet="Fakulte" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ogrenci_Bolum1" Association="Self.FK_Ogrenci_Bolum1">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StajBilgi_Ogrenci" Association="Self.FK_StajBilgi_Ogrenci">
+      <End Role="Ogrenci" EntitySet="Ogrenci" />
+      <End Role="StajBilgi" EntitySet="StajBilgi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

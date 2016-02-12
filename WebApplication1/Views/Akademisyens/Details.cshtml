@@ -1,0 +1,66 @@
+﻿@model WebApplication1.veritabani.Akademisyen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Akademisyen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.aka_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aka_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aka_ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aka_ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aka_soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aka_soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aka_sorumlumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aka_sorumlumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aka_parola)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aka_parola)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolum.bol_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolum.bol_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.aka_tc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
