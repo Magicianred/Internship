@@ -15,6 +15,7 @@ namespace WebApplication1.veritabani
     using System.Web;
     public partial class StajBilgi
     {
+
         public int staj_id { get; set; }
         [Required]
         public string staj_bas { get; set; }
@@ -46,7 +47,6 @@ namespace WebApplication1.veritabani
         public string firma_mail { get; set; }
         [Required]
         public string departman { get; set; }
-        public HttpPostedFileBase yuklenecekdosya { get; set; }
 
 
         public virtual Ogrenci Ogrenci { get; set; }

@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AGiris(Akademisyen k)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 using (InternshipEntities dc = new InternshipEntities())
                 {

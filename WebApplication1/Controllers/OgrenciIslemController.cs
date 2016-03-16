@@ -29,6 +29,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult OGiris(Ogrenci k)
         {
+            
             if (!ModelState.IsValid)
             {
                 using (InternshipEntities dc = new InternshipEntities())

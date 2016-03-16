@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -98,19 +100,19 @@ namespace WebApplication1.Controllers
         // POST: StajBilgis/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-      
-        [ValidateAntiForgeryToken, HttpPost]   
+        [HttpPost]
+        [ValidateAntiForgeryToken]   
        // [Authorize]
         public ActionResult Create([Bind(Include = "staj_id,staj_bas,staj_bit,calisma_alani,kullanilan_teknolojiler,yetkili_yorumu,staj_onaylandimi,ogrenci_tc,staj_defteri,firma_adi,firma_tel,firma_adres,firma_fax,firma_mail,departman")] StajBilgi stajBilgi,HttpPostedFileBase yuklenecekdosya)
         {
-            int a = 10;
+           
             if (Session["LogedUserID"] == null)
             {
                 return RedirectToAction("../Home/Index");
             }
             else
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     if (yuklenecekdosya != null)
                     {
@@ -125,9 +127,31 @@ namespace WebApplication1.Controllers
                             stajBilgi.staj_onaylandimi = false;
                             stajBilgi.yetkili_yorumu = "Bir Yorum Giriniz";
                             stajBilgi.ogrenci_tc = @Session["LogedUserID"].ToString();
-
                             db.StajBilgi.Add(stajBilgi);
-                            db.SaveChanges();
+                            try
+                            {
+                                db.SaveChanges();
+                            }
+                            catch (DbEntityValidationException ex)
+                            {
+                                foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+                                {
+                                    // Get entry
+
+                                    DbEntityEntry entry = item.Entry;
+                                    string entityTypeName = entry.Entity.GetType().Name;
+
+                                    // Display or log error messages
+
+                                    foreach (DbValidationError subItem in item.ValidationErrors)
+                                    {
+                                        string message = string.Format("Error '{0}' occurred in {1} at {2}",
+                                                 subItem.ErrorMessage, entityTypeName, subItem.PropertyName);
+                                        Console.WriteLine(message);
+                                    }
+                                }
+                            }
+                          
                             return RedirectToAction("Index");
                         }
                         else {
@@ -142,7 +166,7 @@ namespace WebApplication1.Controllers
 
 
                 }
-                return RedirectToAction("Index");
+                return View(stajBilgi);
             }
         }
         // GET: StajBilgis/Edit/5
